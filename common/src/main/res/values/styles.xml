@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextInputEditTextStyle">
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/hint</item>
+<!--        <item name="android:textStyle">bold</item>-->
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <style name="TextViewHeadingStyle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextViewItalicSmallStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+<!--        <item name="android:fontFamily">@font/roboto</item>-->
+    </style>
+
+    <style name="TextViewNormalSmall">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    
+</resources>

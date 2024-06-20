@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/main_bg"
+    android:orientation="vertical"
+    tools:context=".offers.presentation.OffersFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_bg"
+        android:layout_marginTop="@dimen/dp_6x"
+        android:layout_marginHorizontal="@dimen/dp_2x"
+        android:paddingVertical="@dimen/dp_2x"
+        android:paddingEnd="@dimen/dp_2x"
+        android:paddingStart="@dimen/dp_1x">
+
+        <ImageView
+            android:id="@+id/goBackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fromEditTxt"
+            style="@style/TextInputEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_1x"
+            android:text="@string/minsk"
+            app:layout_constraintEnd_toStartOf="@+id/replaceBtn"
+            app:layout_constraintStart_toEndOf="@id/goBackBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/green_line"
+            android:layout_marginVertical="@dimen/dp_1x"
+            app:layout_constraintStart_toStartOf="@id/fromEditTxt"
+            app:layout_constraintTop_toBottomOf="@id/fromEditTxt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/toEditTxt"
+            />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/toEditTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sochi"
+            style="@style/TextInputEditTextStyle"
+            app:layout_constraintStart_toStartOf="@id/fromEditTxt"
+            app:layout_constraintEnd_toStartOf="@id/cancelBtn"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/replaceBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_replace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/fromEditTxt" />
+
+        <ImageButton
+            android:id="@+id/cancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/toEditTxt" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/tab"
+        layout="@layout/tab_items"
+        android:layout_margin="@dimen/_12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_2x"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_corner2"
+        android:layout_marginHorizontal="@dimen/dp_2x">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/direct_flights"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_medium" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ticketsRv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/allTicketsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/allTickets"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:fontFamily="@font/roboto"
+        android:background="@drawable/button_rounded_bg"
+        android:layout_marginHorizontal="@dimen/dp_2x"
+        android:layout_marginTop="@dimen/dp_3x" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner2"
+        android:orientation="horizontal"
+        android:layout_marginVertical="@dimen/dp_3x"
+        android:layout_marginHorizontal="@dimen/dp_2x"
+        android:paddingHorizontal="@dimen/dp_1x">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_notification"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/dp_1x"
+            android:background="@color/transparent"/>
+
+        <Switch android:id="@+id/switch1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/subscribe"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginVertical="@dimen/_12dp"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

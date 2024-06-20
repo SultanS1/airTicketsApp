@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/turnBackDateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_4dp"
+            android:background="@drawable/tab_btn_bg"
+            android:paddingHorizontal="10dp">
+
+            <ImageView
+                android:id="@+id/addIc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/dp_1x"
+                android:background="@color/transparent"
+                android:src="@drawable/ic_plus" />
+
+            <TextView
+                android:id="@+id/turnBackDateTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_1x"
+                android:text="@string/turn_back"
+                android:textColor="@color/white"
+                style="@style/TextViewItalicSmallStyle"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/flightDateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_4dp"
+            android:background="@drawable/tab_btn_bg"
+            android:paddingHorizontal="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_plus"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/dp_1x"
+                android:background="@color/transparent"/>
+
+            <TextView
+                android:id="@+id/flightDateTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_1x"
+                android:text="@string/example_date"
+                android:textColor="@color/white"
+                style="@style/TextViewItalicSmallStyle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/personDateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_4dp"
+            android:background="@drawable/tab_btn_bg"
+            android:paddingHorizontal="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_person"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/dp_1x"
+                android:background="@color/transparent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_1x"
+                android:text="@string/one_econom"
+                android:textColor="@color/white"
+                style="@style/TextViewItalicSmallStyle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/filterBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_4dp"
+            android:background="@drawable/tab_btn_bg"
+            android:paddingHorizontal="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_filter"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/dp_1x"
+                android:background="@color/transparent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_1x"
+                android:text="@string/filter"
+                android:textColor="@color/white"
+                style="@style/TextViewItalicSmallStyle" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</HorizontalScrollView>

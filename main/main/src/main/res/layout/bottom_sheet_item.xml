@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_sheet_corner"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/closeSheetBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_bottom_sheet"
+        android:background="@color/transparent"
+        android:layout_marginTop="@dimen/dp_2x"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_2x"
+        android:layout_marginVertical="@dimen/dp_3x"
+        android:background="@drawable/rounded_bg"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_2x">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fromEditTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextInputEditTextStyle"
+            android:hint="@string/to"
+            android:drawableStart="@drawable/ic_departure"
+            android:drawablePadding="@dimen/dp_1x"/>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/inner_grey"
+            android:layout_marginVertical="@dimen/dp_1x"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/toEditTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/from"
+                android:drawableStart="@drawable/ic_search2"
+                android:drawablePadding="@dimen/dp_1x"
+                android:layout_weight="1"
+                style="@style/TextInputEditTextStyle"/>
+
+            <ImageButton
+                android:id="@+id/clearBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_cancel"
+                android:background="@color/transparent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_1x"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/tripBtn"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_1x"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_road"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_1x"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:text="@string/trip"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/anywhereBtn"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/dp_1x"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_world"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_1x"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:text="@string/wherever"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/calendarBtn"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/dp_1x"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_calendar"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_1x"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:text="@string/weekends"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bestsBtn"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/dp_1x"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_hot"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_1x"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:text="@string/trip"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_bg"
+        android:layout_marginVertical="@dimen/dp_4x"
+        android:layout_marginHorizontal="@dimen/dp_2x"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_2x">
+
+        <include
+            android:id="@+id/city1"
+            layout="@layout/cities_item"/>
+
+        <include
+            android:id="@+id/city2"
+            layout="@layout/cities_item" />
+
+        <include
+            android:id="@+id/city3"
+            layout="@layout/cities_item"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"/>
+
+
+</LinearLayout>

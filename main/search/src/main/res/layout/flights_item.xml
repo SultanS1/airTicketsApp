@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp_1x"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/statusContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/dp_5x"
+        android:layout_marginTop="@dimen/dp_1x"
+        app:cardBackgroundColor="@color/basic_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/badgeTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10dp"
+            android:layout_marginVertical="2dp"
+            android:text="@string/arrival"
+            android:textColor="@color/white"
+            style="@style/TextViewItalicSmallStyle"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/statusContainer">
+
+        <TextView
+            android:id="@+id/priceTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_2x"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/price"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_2x"
+            android:layout_marginVertical="@dimen/dp_2x"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/priceTxt">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/flight_1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/departureTimeTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_1x"
+                android:fontFamily="@font/roboto"
+                android:text="@string/example_time"
+                android:textColor="@color/white"
+                style="@style/TextViewItalicSmallStyle"
+                app:layout_constraintStart_toEndOf="@id/icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/departingFromTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4dp"
+                android:text="@string/dme"
+                android:textColor="@color/grey"
+                style="@style/TextViewItalicSmallStyle"
+                app:layout_constraintStart_toStartOf="@id/departureTimeTxt"
+                app:layout_constraintTop_toBottomOf="@id/departureTimeTxt" />
+
+            <ImageView
+                android:id="@+id/hyphonIc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4dp"
+                android:src="@drawable/ic_hyphon"
+                app:layout_constraintBottom_toBottomOf="@id/departureTimeTxt"
+                app:layout_constraintStart_toEndOf="@id/departureTimeTxt"
+                app:layout_constraintTop_toTopOf="@id/departureTimeTxt" />
+
+            <TextView
+                android:id="@+id/arrivalTimeTxt"
+                style="@style/TextViewItalicSmallStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/example_time"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@id/hyphonIc"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/arrivingToTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4dp"
+                android:text="@string/dme"
+                android:textColor="@color/grey"
+                style="@style/TextViewItalicSmallStyle"
+                app:layout_constraintStart_toStartOf="@id/arrivalTimeTxt"
+                app:layout_constraintTop_toBottomOf="@id/arrivalTimeTxt" />
+
+            <TextView
+                android:id="@+id/flightInfoTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_2x"
+                android:text="@string/infoAboutFlight"
+                android:textColor="@color/white"
+                style="@style/TextViewNormalSmall"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/arrivalTimeTxt"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
