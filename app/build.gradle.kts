@@ -5,37 +5,38 @@ plugins {
 
 android {
     namespace = "com.test.airtickets"
-    compileSdk = 34
+    compileSdk = Configs.compileSdk
 
     defaultConfig {
-        applicationId = "com.test.airtickets"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        applicationId = Configs.defaultConfig.applicationId
+        minSdk = Configs.defaultConfig.minSdk
+        targetSdk = Configs.defaultConfig.targetSdk
+        versionCode = Configs.defaultConfig.versionCode
+        versionName = Configs.defaultConfig.versionName
+        testInstrumentationRunner = Configs.defaultConfig.testInstrumentationRunner
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = Configs.buildTypes.release.isMinifyEnabled
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                file(Configs.buildTypes.release.proguardFiles.androidOptimize),
+                file(Configs.buildTypes.release.proguardFiles.customRules)
             )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
+        sourceCompatibility = Configs.compileOptions.sourceCompatibility
+        targetCompatibility = Configs.compileOptions.targetCompatibility
     }
 
-    buildFeatures{
-        viewBinding = true
+    kotlinOptions {
+        jvmTarget = Configs.kotlinOptions.jvmTarget
+    }
+
+    buildFeatures {
+        viewBinding = Configs.buildFeatures.viewBinding
     }
 }
 
@@ -51,20 +52,4 @@ dependencies {
 
     implementation(project(":common"))
     implementation(project(":core"))
-
-    implementation(libs.viewBindingDelegate)
-
-    implementation(libs.cicerone)
-
-    implementation(libs.koin.core)
-    implementation(libs.koin.android)
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 }

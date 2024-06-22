@@ -5,34 +5,35 @@ plugins {
 
 android {
     namespace = "com.test.main"
-    compileSdk = 34
+    compileSdk = Configs.compileSdk
 
     defaultConfig {
-        minSdk = 24
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+        minSdk = Configs.defaultConfig.minSdk
+        testInstrumentationRunner = Configs.defaultConfig.testInstrumentationRunner
+        consumerProguardFiles(file(Configs.defaultConfig.consumerProguardFiles))
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = Configs.buildTypes.release.isMinifyEnabled
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                file(Configs.buildTypes.release.proguardFiles.androidOptimize),
+                file(Configs.buildTypes.release.proguardFiles.customRules)
             )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
+        sourceCompatibility = Configs.compileOptions.sourceCompatibility
+        targetCompatibility = Configs.compileOptions.targetCompatibility
     }
 
-    buildFeatures{
-        viewBinding = true
+    kotlinOptions {
+        jvmTarget = Configs.kotlinOptions.jvmTarget
+    }
+
+    buildFeatures {
+        viewBinding = Configs.buildFeatures.viewBinding
     }
 
 }
@@ -41,28 +42,5 @@ dependencies {
 
     implementation(project(":common"))
     implementation(project(":core"))
-
-    implementation(libs.viewBindingDelegate)
-
-    implementation(libs.koin.core)
-    implementation(libs.koin.android)
-
-    implementation(libs.glide)
-
-    implementation(libs.cicerone)
-
-    implementation(libs.gson)
-    implementation(libs.retrofit)
-    implementation(libs.gson.converter)
-    implementation(libs.okHttp)
-
-    implementation(libs.viewModelLifeCycle)
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 
 }

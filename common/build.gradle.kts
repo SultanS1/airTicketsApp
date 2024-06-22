@@ -5,41 +5,55 @@ plugins {
 
 android {
     namespace = "com.test.common"
-    compileSdk = 34
+    compileSdk = Configs.compileSdk
 
     defaultConfig {
-        minSdk = 24
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+        minSdk = Configs.defaultConfig.minSdk
+        testInstrumentationRunner = Configs.defaultConfig.testInstrumentationRunner
+        consumerProguardFiles(file(Configs.defaultConfig.consumerProguardFiles))
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = Configs.buildTypes.release.isMinifyEnabled
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                file(Configs.buildTypes.release.proguardFiles.androidOptimize),
+                file(Configs.buildTypes.release.proguardFiles.customRules)
             )
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Configs.compileOptions.sourceCompatibility
+        targetCompatibility = Configs.compileOptions.targetCompatibility
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Configs.kotlinOptions.jvmTarget
     }
+
 }
 
 dependencies {
 
-    implementation(libs.cicerone)
+    api(libs.viewBindingDelegate)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    api(libs.koin.core)
+    api(libs.koin.android)
+
+    api(libs.glide)
+
+    api(libs.cicerone)
+
+    api(libs.gson)
+    api(libs.retrofit)
+    api(libs.gson.converter)
+    api(libs.okHttp)
+
+    api(libs.viewModelLifeCycle)
+
+    api(libs.androidx.core.ktx)
+    api(libs.androidx.appcompat)
+    api(libs.material)
+    api(libs.junit)
+    api(libs.androidx.junit)
+    api(libs.androidx.espresso.core)
 }
