@@ -1,13 +1,11 @@
 package com.test.main.presentation
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
@@ -19,6 +17,8 @@ import com.test.core.adapterDelegate.AppAdapter
 import com.test.main.R
 import com.test.main.databinding.BottomSheetItemBinding
 import com.test.main.databinding.FragmentMainBinding
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment(R.layout.fragment_main) {
@@ -80,54 +80,18 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             .into(city3.cityImage)
 
         city2.root.setOnClickListener {
-            val DELAY_MILLIS = 1000L
-            val handler = Handler(Looper.getMainLooper())
-            var runnable: Runnable? = null
             view.toEditTxt.setText(city2.cityTxt.text)
-            runnable?.let { handler.removeCallbacks(it) }
-            runnable = Runnable {
-                if (view.toEditTxt.text!!.isNotEmpty()) {
-                    dialog.dismiss()
-                    viewModel.saveFinalDestination(view.toEditTxt.text.toString())
-                    viewModel.nextScreen()
-                }
-            }
-
-            handler.postDelayed(runnable!!, DELAY_MILLIS)
+            selectedListener(view, dialog)
         }
 
         city3.root.setOnClickListener {
-            val DELAY_MILLIS = 1000L
-            val handler = Handler(Looper.getMainLooper())
-            var runnable: Runnable? = null
             view.toEditTxt.setText(city3.cityTxt.text)
-            runnable?.let { handler.removeCallbacks(it) }
-            runnable = Runnable {
-                if (view.toEditTxt.text!!.isNotEmpty()) {
-                    dialog.dismiss()
-                    viewModel.saveFinalDestination(view.toEditTxt.text.toString())
-                    viewModel.nextScreen()
-                }
-            }
-
-            handler.postDelayed(runnable!!, DELAY_MILLIS)
+            selectedListener(view, dialog)
         }
 
         city1.root.setOnClickListener {
-            val DELAY_MILLIS = 1000L
-            val handler = Handler(Looper.getMainLooper())
-            var runnable: Runnable? = null
             view.toEditTxt.setText(city1.cityTxt.text)
-            runnable?.let { handler.removeCallbacks(it) }
-            runnable = Runnable {
-                if (view.toEditTxt.text!!.isNotEmpty()) {
-                    dialog.dismiss()
-                    viewModel.saveFinalDestination(view.toEditTxt.text.toString())
-                    viewModel.nextScreen()
-                }
-            }
-
-            handler.postDelayed(runnable!!, DELAY_MILLIS)
+            selectedListener(view, dialog)
         }
 
         view.toEditTxt.setOnEditorActionListener { _, actionId, _ ->
@@ -145,20 +109,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         }
 
         view.anywhereBtn.setOnClickListener {
-            val DELAY_MILLIS = 1000L
-            val handler = Handler(Looper.getMainLooper())
-            var runnable: Runnable? = null
             view.toEditTxt.setText("Сочи")
-            runnable?.let { handler.removeCallbacks(it) }
-            runnable = Runnable {
-                if (view.toEditTxt.text!!.isNotEmpty()) {
-                    dialog.dismiss()
-                    viewModel.saveFinalDestination(view.toEditTxt.text.toString())
-                    viewModel.nextScreen()
-                }
-            }
-
-            handler.postDelayed(runnable!!, DELAY_MILLIS)
+            selectedListener(view, dialog)
         }
 
         view.bestsBtn.setOnClickListener {
@@ -174,6 +126,17 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         dialog.setContentView(view.root)
 
         dialog.show()
+    }
+
+    private fun selectedListener(view: BottomSheetItemBinding, dialog: BottomSheetDialog){
+        lifecycleScope.launch {
+            delay(1500L)
+            if (view.toEditTxt.text!!.isNotEmpty()) {
+                dialog.dismiss()
+                viewModel.saveFinalDestination(view.toEditTxt.text.toString())
+                viewModel.nextScreen()
+            }
+        }
     }
 
     private fun adapterSetUp(){
