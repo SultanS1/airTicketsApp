@@ -168,7 +168,7 @@
                 android:gravity="center"
                 android:textSize="14sp"
                 android:textColor="@color/white"
-                android:text="@string/trip"/>
+                android:text="@string/bestSellers"/>
 
         </LinearLayout>
 
