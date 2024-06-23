@@ -1,6 +1,6 @@
 # Air Ticket 
 
-## This project was done as a test task (Note: API is mock, there was not provided api so here is imitated api response)
+## This project was done as a test task
 
 This project was done in short amount of time. Feature module and Clean Architecture are applied. 
 

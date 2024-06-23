@@ -148,12 +148,12 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         viewModel.offersResponse.observe(viewLifecycleOwner) { status ->
             when (status) {
                 is NetworkStatus.Success -> adapter.submitList(status.data)
-                is NetworkStatus.Error -> Toast.makeText(
+                is NetworkStatus.Error -> {Toast.makeText(
                     requireContext(),
                     status.message,
                     Toast.LENGTH_SHORT
                 ).show()
-
+                }
                 else -> {}
             }
         }

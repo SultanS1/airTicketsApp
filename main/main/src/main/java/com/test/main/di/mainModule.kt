@@ -14,11 +14,12 @@ import com.test.main.presentation.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
+import retrofit2.Retrofit
 
 
 val mainModule = module {
 
-    single { OffersApi() }
+    single { getOffersApi(get()) }
     single { Preferences(androidContext()) }
     single<OffersRepository> { OffersRepositoryImpl(get(), get()) }
     single { OffersUseCase(get()) }
@@ -27,4 +28,8 @@ val mainModule = module {
     single { SaveFinalDestinationUseCase(get()) }
     viewModel{ MainViewModel(get<NavigationRouter<NavigateTo>>(), get(), get(), get(), get()) }
 
+}
+
+fun getOffersApi(retrofit: Retrofit): OffersApi{
+    return retrofit.create(OffersApi::class.java)
 }
