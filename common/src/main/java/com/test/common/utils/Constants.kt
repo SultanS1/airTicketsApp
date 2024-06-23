@@ -11,4 +11,6 @@ object Constants {
 
     const val FLIGHT_DATE = "FLIGHT_DATE"
 
+    const val  BASE_URL = "https://run.mocky.io/"
+
 }

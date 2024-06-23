@@ -58,7 +58,7 @@ class OffersFragment : Fragment(R.layout.fragment_offers) {
     private fun observeTickets(){
         viewModel.ticketsResponse.observe(viewLifecycleOwner, Observer{ status ->
             when(status){
-                is NetworkStatus.Success -> adapter.submitList(status.data)
+                is NetworkStatus.Success -> adapter.submitList(status.data.subList(0,3))
                 is NetworkStatus.Error -> Toast.makeText(requireContext(), status.message, Toast.LENGTH_SHORT).show()
                 else -> {}
             }

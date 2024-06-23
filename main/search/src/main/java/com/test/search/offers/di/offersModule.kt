@@ -13,10 +13,11 @@ import com.test.search.offers.presentation.OffersViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
+import retrofit2.Retrofit
 
 val offersModule = module {
 
-    single { TicketOffersApi() }
+    single { getTicketOffersApi(get()) }
     single { Preferences(androidContext()) }
     single<TicketOffersRepository> { TicketOffersRepositoryImpl(get(), get()) }
     single { GetDestinationsUseCase(get()) }
@@ -24,4 +25,8 @@ val offersModule = module {
     single { SaveFlightDateUseCase(get()) }
     viewModel{ OffersViewModel(get<NavigationRouter<NavigateTo>>(), get(), get(), get()) }
 
+}
+
+fun getTicketOffersApi(retrofit: Retrofit): TicketOffersApi{
+    return retrofit.create(TicketOffersApi::class.java)
 }

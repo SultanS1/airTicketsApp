@@ -17,9 +17,8 @@ import com.test.main.domain.repository.OffersRepository
 class OffersRepositoryImpl(private val api: OffersApi, private val preferences: Preferences): OffersRepository {
 
     override suspend fun getOffers(): List<OfferModel> {
-        return api.getOffers().offers.map {
-            it.toModel()
-        }
+        val result = api.getOffers()
+        return result.offers.map { it.toModel() }
     }
 
     override fun getLastDestination(): String? {
